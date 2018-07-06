@@ -1,0 +1,38 @@
+USE Overpowered;
+
+SHOW tables;
+
+CREATE table Employee (
+	RegisterDate Date NOT NULL,
+    EmployeeID INT NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(50) NOT NULL,
+    `Password` VARCHAR(50) NOT NULL,
+    PRIMARY KEY (EmployeeID)
+);
+
+INSERT INTO Employee (RegisterDate, FirstName, LastName, Email, `Password`) VALUES(CURDATE(), 'Sansa', 'Stark', 'sansa.stark@gsu.edu', 'gameofthrones');
+
+SELECT * FROM Employee;
+
+ALTER TABLE Employee MODIFY COLUMN EmployeeID INT AUTO_INCREMENT;
+
+DELETE FROM employee WHERE EmployeeID = 11;
+
+
+
+ALTER TABLE Employee MODIFY COLUMN RedisterDate DATE DEFAULT NOW();
+
+CREATE TABLE Tableau (
+	UtilityProvider VARCHAR(100) NOT NULL,
+    StatementDate DATE NOT NULL,
+    TotalBillAmount DOUBLE NOT NULL,
+    SiteName VARCHAR(100) NOT NULL
+)
+
+SELECT * FROM Tableau;
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'walktime';
+
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
